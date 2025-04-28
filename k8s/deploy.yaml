@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sk015-walktogether
+  namespace: skala-practice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sk015-walktogether
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '8081'
+        prometheus.io/path: '/actuator/prometheus'
+        update: b4b0bfcf04c7cd0f658321d02714cb5d
+      labels:
+        app: sk015-walktogether
+    spec:
+      serviceAccountName: default
+      containers:
+      - name: walktogether
+        image: amdp-registry.skala-ai.com/skala25a/sk015-walktogether:latest
+        imagePullPolicy: Always
+        env:
+        - name: LOGGING_LEVEL
+          value: DEBUG
+        - name: USER_NAME
+          value: sk015
+        - name: NAMESPACE
+          value: skala-practice
