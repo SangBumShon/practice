@@ -13,6 +13,13 @@ spec:
   - host: sk015-tls.skala25a.project.skala-ai.com
     http:
       paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: walktogether
+            port:
+              number: 8080
       - path: /walktogether
         pathType: Prefix
         backend:
@@ -36,3 +43,7 @@ spec:
             name: walktogether
             port:
               number: 8080
+  tls:
+  - hosts:
+    - sk015-tls.skala25a.project.skala-ai.com
+    secretName: sk015-cm-auto-tls-secret
