@@ -5,7 +5,7 @@ metadata:
   namespace: skala-practice
 spec:
   selector:
-    app: walktogether
+    app: sk015-walktogether
   ports:
     - name: http
       protocol: TCP

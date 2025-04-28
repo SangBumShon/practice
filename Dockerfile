@@ -12,7 +12,7 @@ EXPOSE 8081
 ARG JAR_FILE
 
 # 애플리케이션의 jar 파일을 컨테이너에 추가
-COPY ./target/${JAR_FILE} app.jar
+COPY target/walktogether-0.0.1-SNAPSHOT.jar app.jar
 
 # 애플리케이션 실행
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=prod","-jar","app.jar"]
