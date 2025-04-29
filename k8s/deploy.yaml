@@ -35,7 +35,7 @@ spec:
       #   effect: NoSchedule
       containers:
       - name: walktogether
-        image: amdp-registry.skala-ai.com/skala25a/sk015-walktogether:latest-5-86e4166423b8
+        image: amdp-registry.skala-ai.com/skala25a/sk015-walktogether:latest-6-ee236b30da57
         imagePullPolicy: Always
         env:
         - name: LOGGING_LEVEL_ROOT
