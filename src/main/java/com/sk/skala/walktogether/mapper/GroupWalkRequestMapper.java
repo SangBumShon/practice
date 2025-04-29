@@ -8,7 +8,6 @@ import com.sk.skala.walktogether.model.User;
 
 public class GroupWalkRequestMapper {
 
-    // CreateDTO → Entity 변환
     public static GroupWalkRequest toEntity(GroupWalkRequestCreateDTO dto, GroupWalk group, User requestUser) {
         if (dto == null || group == null || requestUser == null) return null;
 
@@ -18,7 +17,6 @@ public class GroupWalkRequestMapper {
                 .build();
     }
 
-    // Entity → ReadDTO 변환
     public static GroupWalkRequestReadDTO toReadDTO(GroupWalkRequest entity) {
         if (entity == null) return null;
 

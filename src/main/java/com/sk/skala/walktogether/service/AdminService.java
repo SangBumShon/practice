@@ -64,7 +64,7 @@ public class AdminService {
         // FrequentWalkRoute 생성
         FrequentWalkRoute popularRoute = FrequentWalkRoute.builder()
                 .route(walkRoute)
-                .totalUserCount(10)  // 등록 시 기본적으로 10회 이상 이용한 것으로 가정
+                .totalUserCount(10)  
                 .build();
 
         frequentWalkRouteRepository.save(popularRoute);

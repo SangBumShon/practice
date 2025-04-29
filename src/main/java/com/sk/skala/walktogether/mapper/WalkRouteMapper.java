@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 
 public class WalkRouteMapper {
 
-    // CreateDTO → Entity 변환
     public static WalkRoute toEntity(WalkRouteCreateDTO dto, User createdByUser) {
         if (dto == null || createdByUser == null) return null;
 
@@ -24,7 +23,6 @@ public class WalkRouteMapper {
                 .build();
     }
 
-    // Entity → ReadDTO 변환
     public static WalkRouteReadDTO toReadDTO(WalkRoute entity) {
         if (entity == null) return null;
 
@@ -39,7 +37,6 @@ public class WalkRouteMapper {
                 .build();
     }
 
-    // UpdateDTO 적용
     public static void updateEntity(WalkRoute entity, WalkRouteUpdateDTO dto) {
         if (entity == null || dto == null) return;
 

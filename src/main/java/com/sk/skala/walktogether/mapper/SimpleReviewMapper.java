@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 
 public class SimpleReviewMapper {
 
-    // CreateDTO → Entity 변환
     public static SimpleReview toEntity(SimpleReviewCreateDTO dto, User writer, WalkRoute walkRoute) {
         if (dto == null || writer == null || walkRoute == null) return null;
 
@@ -23,7 +22,6 @@ public class SimpleReviewMapper {
                 .build();
     }
 
-    // Entity → ReadDTO 변환
     public static SimpleReviewReadDTO toReadDTO(SimpleReview entity) {
         if (entity == null) return null;
 
@@ -36,7 +34,6 @@ public class SimpleReviewMapper {
                 .build();
     }
 
-    // UpdateDTO 적용
     public static void updateEntity(SimpleReview entity, SimpleReviewUpdateDTO dto) {
         if (entity == null || dto == null) return;
 

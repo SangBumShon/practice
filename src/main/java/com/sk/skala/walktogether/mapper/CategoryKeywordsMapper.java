@@ -6,7 +6,6 @@ import com.sk.skala.walktogether.model.CategoryKeywords;
 
 public class CategoryKeywordsMapper {
 
-    // CreateDTO → Entity 변환
     public static CategoryKeywords toEntity(CategoryKeywordsCreateDTO dto) {
         if (dto == null) return null;
 
@@ -16,7 +15,6 @@ public class CategoryKeywordsMapper {
                 .build();
     }
 
-    // Entity → ReadDTO 변환
     public static CategoryKeywordsReadDTO toReadDTO(CategoryKeywords entity) {
         if (entity == null) return null;
 

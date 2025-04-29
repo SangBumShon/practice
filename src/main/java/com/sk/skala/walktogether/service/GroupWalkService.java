@@ -31,7 +31,6 @@ public class GroupWalkService {
     }
 
 
-    // 그룹 산책 생성
     public GroupWalkReadDTO createGroupWalk(GroupWalkCreateDTO dto) {
         User host = userRepository.findById(dto.getHostUserId())
                 .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
@@ -71,7 +70,6 @@ public class GroupWalkService {
                 .collect(Collectors.toList());
     }
 
-    // 그룹 산책 삭제
     public void deleteGroupWalk(Long walkGroupId) {
         groupWalkRepository.deleteById(walkGroupId);
     }

@@ -7,7 +7,6 @@ import com.sk.skala.walktogether.model.User;
 
 public class UserMapper {
 
-    // SignupDTO → Entity 변환 (회원가입용)
     public static User toEntity(UserSignupDTO dto) {
         if (dto == null) return null;
 
@@ -21,7 +20,6 @@ public class UserMapper {
                 .build();
     }
 
-    // Entity → ReadDTO 변환 (회원 조회용)
     public static UserReadDTO toReadDTO(User entity) {
         if (entity == null) return null;
 
@@ -35,7 +33,6 @@ public class UserMapper {
                 .build();
     }
 
-    // UpdateDTO 적용 (회원정보 수정용)
     public static void updateEntity(User entity, UserInfoUpdateDTO dto) {
         if (entity == null || dto == null) return;
 

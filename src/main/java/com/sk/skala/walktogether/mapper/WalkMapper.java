@@ -8,7 +8,6 @@ import com.sk.skala.walktogether.model.WalkRoute;
 
 public class WalkMapper {
 
-    // CreateDTO → Entity 변환
     public static Walk toEntity(WalkCreateDTO dto, User walkUser, WalkRoute walkRoute) {
         if (dto == null || walkUser == null || walkRoute == null) return null;
 
@@ -20,7 +19,6 @@ public class WalkMapper {
                 .build();
     }
 
-    // Entity → ReadDTO 변환
     public static WalkReadDTO toReadDTO(Walk entity) {
         if (entity == null) return null;
 

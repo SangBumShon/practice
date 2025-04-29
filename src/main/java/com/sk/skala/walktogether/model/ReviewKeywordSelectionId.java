@@ -14,7 +14,6 @@ public class ReviewKeywordSelectionId implements Serializable {
     @Column(name = "keyword_id")
     private Long keywordId;
 
-    // 기본 생성자, equals(), hashCode() 반드시 구현
     public ReviewKeywordSelectionId() {}
 
     public ReviewKeywordSelectionId(Long reviewId, Long keywordId) {
@@ -36,5 +35,4 @@ public class ReviewKeywordSelectionId implements Serializable {
         return Objects.hash(reviewId, keywordId);
     }
 
-    // getters / setters...
 }

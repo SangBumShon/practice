@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 
 public class GroupWalkMapper {
 
-    // CreateDTO → Entity 변환
     public static GroupWalk toEntity(GroupWalkCreateDTO dto, User host, WalkRoute route) {
         if (dto == null || host == null || route == null) return null;
 
@@ -23,7 +22,6 @@ public class GroupWalkMapper {
                 .build();
     }
 
-    // Entity → ReadDTO 변환
     public static GroupWalkReadDTO toReadDTO(GroupWalk entity) {
         if (entity == null) return null;
 
@@ -36,7 +34,6 @@ public class GroupWalkMapper {
                 .build();
     }
 
-    // UpdateDTO 적용
     public static void updateEntity(GroupWalk entity, GroupWalkUpdateDTO dto) {
         if (entity == null || dto == null) return;
 

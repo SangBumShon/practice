@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 
 public class LikesMapper {
 
-    // CreateDTO → Entity 변환
     public static Likes toEntity(LikesCreateDTO dto, SimpleReview post, User likedUser) {
         if (dto == null || post == null || likedUser == null) return null;
 
@@ -21,7 +20,6 @@ public class LikesMapper {
                 .build();
     }
 
-    // Entity → ReadDTO 변환
     public static LikesReadDTO toReadDTO(Likes entity) {
         if (entity == null) return null;
 

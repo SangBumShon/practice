@@ -26,37 +26,26 @@ public class WalkRouteService {
         this.userRepository = userRepository;
     }
 
-    // 산책로 생성
     public WalkRouteReadDTO createWalkRoute(WalkRouteCreateDTO dto) {
-        // 1. 생성자 유저 찾기
         User createdBy = userRepository.findById(dto.getCreatedByUserId())
                 .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
 
-        // 2. DTO → Entity 변환
         WalkRoute entity = WalkRouteMapper.toEntity(dto, createdBy);
 
-        // 3. 저장
         WalkRoute saved = walkRouteRepository.save(entity);
 
-        // 4. Entity → ReadDTO 변환
         return WalkRouteMapper.toReadDTO(saved);
     }
 
-    // 산책로 수정
     public WalkRouteReadDTO updateWalkRoute(WalkRouteUpdateDTO dto) {
-        // 1. 산책로 찾기
         WalkRoute entity = walkRouteRepository.findById(dto.getRouteId())
                 .orElseThrow(() -> new IllegalArgumentException("산책로를 찾을 수 없습니다."));
 
-        // 2. 수정 적용
         WalkRouteMapper.updateEntity(entity, dto);
-        // JPA 변경감지로 자동 저장
 
-        // 3. 수정 후 변환
         return WalkRouteMapper.toReadDTO(entity);
     }
 
-    // 산책로 단건 조회
     @Transactional(readOnly = true)
     public WalkRouteReadDTO getWalkRoute(Long routeId) {
         WalkRoute entity = walkRouteRepository.findById(routeId)
@@ -64,7 +53,6 @@ public class WalkRouteService {
         return WalkRouteMapper.toReadDTO(entity);
     }
 
-    // 산책로 전체 조회
     @Transactional(readOnly = true)
     public List<WalkRouteReadDTO> getAllWalkRoutes() {
         return walkRouteRepository.findAll()
@@ -73,7 +61,6 @@ public class WalkRouteService {
                 .collect(Collectors.toList());
     }
 
-    // 산책로 삭제
     public void deleteWalkRoute(Long routeId) {
         walkRouteRepository.deleteById(routeId);
     }

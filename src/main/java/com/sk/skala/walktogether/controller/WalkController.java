@@ -23,7 +23,6 @@ public class WalkController {
     private final SimpleReviewService simpleReviewService;
     private final LikesService likesService;
 
-    // --- 🚶 산책 기록 ---
 
     @Operation(summary = "산책 기록 생성", description = "새로운 산책 기록을 생성합니다.")
     @PostMapping("/records")
@@ -43,7 +42,6 @@ public class WalkController {
         return ResponseEntity.ok(walkService.getAllWalks());
     }
 
-    // --- 📍 산책로 ---
 
     @Operation(summary = "산책로 생성", description = "새로운 산책로를 등록합니다.")
     @PostMapping("/routes")
@@ -77,8 +75,6 @@ public class WalkController {
         walkRouteService.deleteWalkRoute(routeId);
         return ResponseEntity.noContent().build();
     }
-
-    // --- 🤝 그룹 산책 ---
 
     @Operation(summary = "그룹 산책 생성", description = "새로운 그룹 산책을 등록합니다.")
     @PostMapping("/group")
