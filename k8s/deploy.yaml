@@ -22,7 +22,7 @@ spec:
       containers:
       - name: walktogether
         # image: amdp-registry.skala-ai.com/skala25a/sk015-walktogether:latest
-        image: amdp-registry.skala-ai.com/skala25a/sk015-walktogether@sha256:7acb893a7ee1a6951ff4f85e9978bd484a25ba219db6e28313df12c3e328bc1d
+        image: amdp-registry.skala-ai.com/skala25a/sk015-walktogether:latest-5-86e4166423b8
         imagePullPolicy: Always
         env:
         - name: LOGGING_LEVEL_ROOT
