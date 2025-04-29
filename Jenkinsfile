@@ -51,6 +51,9 @@
 pipeline {
     agent any
 
+    // parameters {
+    //     choice(name: 'ENV', choices: ['local', 'prod'], description: "k8s environment to deploy")
+    // }
     environment {
         GIT_URL = 'https://github.com/SangBumShon/practice.git'
         GIT_BRANCH = 'main' // 또는 master
@@ -62,6 +65,8 @@ pipeline {
         IMAGE_TAG = 'latest'
         DOCKER_CREDENTIAL_ID = 'skala-image-registry-id'  // Harbor 인증 정보 ID
     }
+
+
 
     stages {
         stage('Clone Repository') {
@@ -125,7 +130,7 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: "${env.GIT_ID}", usernameVariable: 'GIT_PUSH_USER', passwordVariable: 'GIT_PUSH_PASSWORD')]) {
                         sh """
                             if ! git diff --cached --quiet; then
-                                git commit -m "[AUTO] Update deploy.yaml with image ${env.FINAL_IMAGE_TAG}"
+                                git commit -m "[AUTO] Update deploy.yaml with image ${env.FINAL_IMAGE_TAG} & resources in deploy.yaml"
                                 git remote set-url origin https://${GIT_PUSH_USER}:${GIT_PUSH_PASSWORD}@${gitRepoPath}
                                 git push origin ${env.GIT_BRANCH}
                             else
