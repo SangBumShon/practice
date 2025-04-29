@@ -93,7 +93,7 @@ pipeline {
                     echo "Final Image Tag: ${FINAL_IMAGE_TAG}"
 
                     docker.withRegistry("https://${IMAGE_REGISTRY}", "${DOCKER_CREDENTIAL_ID}") {
-                        def appImage = docker.build("${IMAGE_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}", "--platform linux/amd64 .")
+                        def appImage = docker.build("${IMAGE_REGISTRY}/${IMAGE_NAME}:${FINAL_IMAGE_TAG}", "--platform linux/amd64 .")
                         appImage.push()
                     }
                 
