@@ -3,14 +3,17 @@ kind: Ingress
 metadata:
   name: sk015-tls-ingress
   namespace: skala-practice
+  annotations:
+    kubernetes.io/ingress.class: public-nginx
+    # nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   ingressClassName: public-nginx
   tls:
   - hosts:
-    - sk015-tls.skala25a.project.skala-ai.com
+    - sk015-walktogether.project.skala-ai.com
     secretName: sk015-ingress-tls-secret
   rules:
-  - host: sk015-tls.skala25a.project.skala-ai.com
+  - host: sk015-walktogether.project.skala-ai.com
     http:
       paths:
       - path: /
@@ -20,6 +23,7 @@ spec:
             name: walktogether
             port:
               number: 8080
+
       - path: /walktogether
         pathType: Prefix
         backend:
@@ -34,7 +38,7 @@ spec:
           service:
             name: walktogether
             port:
-              number: 8080
+              number: 8081
 
       - path: /swagger-ui
         pathType: Prefix
@@ -43,7 +47,7 @@ spec:
             name: walktogether
             port:
               number: 8080
-  tls:
-  - hosts:
-    - sk015-tls.skala25a.project.skala-ai.com
-    secretName: sk015-cm-auto-tls-secret
+  # tls:
+  # - hosts:
+  #   - sk015-walktogether.project.skala-ai.com
+  #   secretName: sk015-cm-auto-tls-secret
