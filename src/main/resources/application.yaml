@@ -1,13 +1,6 @@
-
 spring:
   application:
     name: ${SPRING_APP_NAME:walktogether}
-
-  datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://mariadb.skala-env:3306/CLOUD}
-    username: ${SPRING_DATASOURCE_USERNAME:cloud}
-    password: ${SPRING_DATASOURCE_PASSWORD:Skala25a!23$}
-    driver-class-name: org.mariadb.jdbc.Driver
 
   jpa:
     hibernate:
@@ -29,7 +22,7 @@ springdoc:
 
 management:
   server:
-    port: ${MANAGEMENT_PORT:8080}
+    port: ${MANAGEMENT_PORT:8081}
 
   endpoints:
     web:

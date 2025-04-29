@@ -18,25 +18,32 @@ spec:
       labels:
         app: sk015-walktogether
     spec:
-      # serviceAccountName: default
-      # affinity:
-      #   podAntiAffinity:
-      #     requiredDuringSchedulingIgnoredDuringExecution:
-      #       nodeSelectorTerms:
-      #       - matchExpressions:
-      #         - key: skala-k8s-practice
-      #           operator: In
-      #           values:
-      #           - "yes"
-      # tolerations:
-      # - key: skala-k8s-practice
-      #   operator: Equal
-      #   value: "yes"
-      #   effect: NoSchedule
+      serviceAccountName: default
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - sk015-walktogether
+            topologyKey: kubernetes.io/hostname
+      tolerations:
+      - key: skala-k8s-practice
+        operator: Equal
+        value: "yes"
+        effect: NoSchedule
+
       containers:
       - name: walktogether
         image: amdp-registry.skala-ai.com/skala25a/sk015-walktogether:latest-5-86e4166423b8
         imagePullPolicy: Always
+
+        envFrom:
+        - configMapRef:
+            name: db-config-prod
+
         env:
         - name: LOGGING_LEVEL_ROOT
           value: DEBUG
@@ -44,26 +51,33 @@ spec:
           value: sk015
         - name: NAMESPACE
           value: skala-practice
+        - name: SPRING_PROFILES_ACTIVE
+          value: "prod"
+
         ports:
         - containerPort: 8080
+        - containerPort: 8081
+
         livenessProbe:
           httpGet:
             path: /actuator/health/liveness
-            port: 8080
+            port: 8081
           initialDelaySeconds: 5
           periodSeconds: 3
           failureThreshold: 2
+
         readinessProbe:
           httpGet:
             path: /actuator/health/readiness
-            port: 8080
+            port: 8081
           initialDelaySeconds: 5
           periodSeconds: 3
           failureThreshold: 2
+
         startupProbe:
           httpGet:
             path: /actuator/health/readiness
-            port: 8080
+            port: 8081
           initialDelaySeconds: 30
           periodSeconds: 3
           failureThreshold: 2

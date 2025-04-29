@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-config-local
+  namespace: skala-practice
+data:
+  database.url: jdbc:mariadb://localhost:3306/new?serverTimezone=UTC&useSSL=false
+  database.user: root
+  database.password: sk015
