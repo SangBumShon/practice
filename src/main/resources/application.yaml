@@ -1,0 +1,49 @@
+
+spring:
+  application:
+    name: ${SPRING_APP_NAME:walktogether}
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://mariadb.skala-env:3306/CLOUD}
+    username: ${SPRING_DATASOURCE_USERNAME:cloud}
+    password: ${SPRING_DATASOURCE_PASSWORD:Skala25a!23$}
+    driver-class-name: org.mariadb.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MariaDBDialect
+
+server:
+  servlet:
+    context-path: /
+  port: ${SERVER_PORT:8080}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+management:
+  server:
+    port: ${MANAGEMENT_PORT:8080}
+
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,env,beans
+
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
