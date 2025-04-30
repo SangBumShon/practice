@@ -21,7 +21,7 @@ spec:
       serviceAccountName: default
       affinity:
         podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
+          preferredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
               - key: app
@@ -85,6 +85,6 @@ spec:
             port: 8081
           initialDelaySeconds: 90
           periodSeconds: 3
-          failureThreshold: 2
+          failureThreshold: 3
 
 
