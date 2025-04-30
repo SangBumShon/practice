@@ -41,13 +41,13 @@ spec:
               number: 8081
 
       - path: /swagger-ui.html
-            pathType: Exact
-            backend:
-              service:
-                name: walktogether
-                port:
-                  number: 8080
-                  
+        pathType: Exact
+        backend:
+          service:
+            name: walktogether
+            port:
+              number: 8080
+              
       - path: /swagger-ui
         pathType: Prefix
         backend:
