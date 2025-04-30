@@ -22,13 +22,15 @@ spec:
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - sk015-walktogether
-            topologyKey: kubernetes.io/hostname
+          - weight : 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - sk015-walktogether
+              topologyKey: kubernetes.io/hostname
       tolerations:
       - key: skala-k8s-practice
         operator: Equal
