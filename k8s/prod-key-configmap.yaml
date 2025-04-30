@@ -4,6 +4,6 @@ metadata:
   name: db-config-prod
   namespace: skala-practice
 data:
-  database.url: mariadb://mariadb.skala-env:3306/CLOUD
+  database.url: jdbc:mariadb://mariadb.skala-env:3306/CLOUD
   database.user: cloud
   database.password: Skala25a!23$
