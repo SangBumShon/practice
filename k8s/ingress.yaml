@@ -40,7 +40,7 @@ spec:
             port:
               number: 8081
 
-      - path: /swagger-ui
+      - path: /swagger-ui.html
         pathType: Prefix
         backend:
           service:
