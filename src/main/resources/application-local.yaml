@@ -1,6 +1,8 @@
 spring:
-  profiles: local
-
+  config:
+    activate:
+      on-profile: local
+      
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://localhost:3306/new}
     username: ${SPRING_DATASOURCE_USERNAME:root}

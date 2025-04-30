@@ -1,5 +1,8 @@
 spring:
-  profiles: prod
+  config:
+    activate:
+      on-profile: prod
+      
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://mariadb.skala-env:3306/CLOUD}
     username: ${SPRING_DATASOURCE_USERNAME:cloud}
