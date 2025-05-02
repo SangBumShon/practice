@@ -52,7 +52,7 @@ spec:
 
         envFrom:
         - configMapRef:
-            name: db-config-prod
+            name: prod-db-config
 
         env:
         - name: LOGGING_LEVEL_ROOT
