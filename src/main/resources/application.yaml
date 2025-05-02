@@ -34,7 +34,7 @@ management:
       show-details: always
       probes:
         enabled: true
-      groups:
+      group:
         readiness:
           include: "*"
         startup:
