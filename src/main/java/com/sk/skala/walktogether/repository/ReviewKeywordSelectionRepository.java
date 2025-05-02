@@ -9,8 +9,5 @@ import java.util.List;
 public interface ReviewKeywordSelectionRepository
         extends JpaRepository<ReviewKeywordSelection, ReviewKeywordSelectionId> {
 
-    /**
-     * review.walkReviewId = ? 조건으로 조회
-     */
     List<ReviewKeywordSelection> findByReviewWalkReviewId(Long walkReviewId);
 }

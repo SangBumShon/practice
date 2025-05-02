@@ -58,6 +58,7 @@ public class GroupWalkRequestService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public void deleteGroupWalkRequest(Long requestId) {
         groupWalkRequestRepository.deleteById(requestId);
     }

@@ -30,7 +30,7 @@ public class GroupWalkService {
         this.walkRouteRepository = walkRouteRepository;
     }
 
-
+    @Transactional
     public GroupWalkReadDTO createGroupWalk(GroupWalkCreateDTO dto) {
         User host = userRepository.findById(dto.getHostUserId())
                 .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
@@ -70,6 +70,7 @@ public class GroupWalkService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public void deleteGroupWalk(Long walkGroupId) {
         groupWalkRepository.deleteById(walkGroupId);
     }

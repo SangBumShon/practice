@@ -26,6 +26,7 @@ public class WalkRouteService {
         this.userRepository = userRepository;
     }
 
+    @Transactional
     public WalkRouteReadDTO createWalkRoute(WalkRouteCreateDTO dto) {
         User createdBy = userRepository.findById(dto.getCreatedByUserId())
                 .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
@@ -37,6 +38,7 @@ public class WalkRouteService {
         return WalkRouteMapper.toReadDTO(saved);
     }
 
+    @Transactional
     public WalkRouteReadDTO updateWalkRoute(WalkRouteUpdateDTO dto) {
         WalkRoute entity = walkRouteRepository.findById(dto.getRouteId())
                 .orElseThrow(() -> new IllegalArgumentException("산책로를 찾을 수 없습니다."));
@@ -61,6 +63,7 @@ public class WalkRouteService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public void deleteWalkRoute(Long routeId) {
         walkRouteRepository.deleteById(routeId);
     }

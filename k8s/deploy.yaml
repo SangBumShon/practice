@@ -36,13 +36,10 @@ spec:
         operator: Equal
         value: "yes"
         effect: NoSchedule
-      # - key: control-plane
-      #   operator: Exists
-      #   effect: NoSchedule
 
       containers:
       - name: walktogether
-        image: amdp-registry.skala-ai.com/skala25a/sk015-walktogether:latest-30-d6fefc42f040
+        image: amdp-registry.skala-ai.com/skala25a/sk015-walktogether:latest-27-f979014ba4b6
         imagePullPolicy: Always
         resources:
           requests:
@@ -86,7 +83,7 @@ spec:
 
         startupProbe:
           httpGet:
-            path: /actuator/health/startup
+            path: /actuator/health/readiness
             port: 8081
           initialDelaySeconds: 60
           periodSeconds: 3

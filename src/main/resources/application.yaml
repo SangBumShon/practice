@@ -34,11 +34,6 @@ management:
       show-details: always
       probes:
         enabled: true
-      group:
-        readiness:
-          include: "*"
-        startup:
-          include: "startup"
 
   health:
     livenessstate:

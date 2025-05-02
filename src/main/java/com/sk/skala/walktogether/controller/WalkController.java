@@ -109,8 +109,6 @@ public class WalkController {
         return ResponseEntity.noContent().build();
     }
 
-    // --- 🙋 그룹 산책 신청 ---
-
     @Operation(summary = "그룹 산책 신청", description = "그룹 산책에 참가 신청을 합니다.")
     @PostMapping("/group-requests")
     public ResponseEntity<GroupWalkRequestReadDTO> createGroupWalkRequest(@RequestBody GroupWalkRequestCreateDTO dto) {
@@ -135,8 +133,6 @@ public class WalkController {
         groupWalkRequestService.deleteGroupWalkRequest(requestId);
         return ResponseEntity.noContent().build();
     }
-
-    // --- 📝 간단 후기 ---
 
     @Operation(summary = "후기 작성", description = "산책 후기(간단 리뷰)를 작성합니다.")
     @PostMapping("/reviews")
@@ -170,8 +166,6 @@ public class WalkController {
         simpleReviewService.deleteSimpleReview(walkReviewId);
         return ResponseEntity.noContent().build();
     }
-
-    // --- 👍 좋아요 ---
 
     @Operation(summary = "좋아요 등록", description = "후기에 좋아요를 누릅니다.")
     @PostMapping("/likes")

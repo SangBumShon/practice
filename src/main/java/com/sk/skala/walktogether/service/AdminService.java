@@ -39,7 +39,6 @@ public class AdminService {
         this.walkRouteRepository = walkRouteRepository;
     }
 
-    // 후기 삭제
     @Transactional
     public void deleteReview(Long walkReviewId) {
         if (!simpleReviewRepository.existsById(walkReviewId)) {
@@ -48,20 +47,17 @@ public class AdminService {
         simpleReviewRepository.deleteById(walkReviewId);
     }
 
-    // 카테고리 키워드 추가
     @Transactional
     public void addCategoryKeyword(CategoryKeywordsCreateDTO dto) {
         CategoryKeywords entity = CategoryKeywordsMapper.toEntity(dto);
         categoryKeywordsRepository.save(entity);
     }
 
-    // 인기 산책로 등록
     @Transactional
     public void registerPopularRoute(Long routeId) {
         WalkRoute walkRoute = walkRouteRepository.findById(routeId)
                 .orElseThrow(() -> new IllegalArgumentException("산책로를 찾을 수 없습니다."));
 
-        // FrequentWalkRoute 생성
         FrequentWalkRoute popularRoute = FrequentWalkRoute.builder()
                 .route(walkRoute)
                 .totalUserCount(10)  
@@ -69,6 +65,7 @@ public class AdminService {
 
         frequentWalkRouteRepository.save(popularRoute);
     }
+
     @Transactional(readOnly = true)
     public List<CategoryKeywordsReadDTO> getAllCategoryKeywords() {
         return categoryKeywordsRepository.findAll()

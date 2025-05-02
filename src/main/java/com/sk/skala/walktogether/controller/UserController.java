@@ -29,7 +29,7 @@ public class UserController {
     @PutMapping("/{userId}")
     public ResponseEntity<UserReadDTO> updateUser(@PathVariable Long userId,
                                                   @RequestBody UserInfoUpdateDTO dto) {
-        dto.setUserId(userId);  // PathVariable을 DTO에 주입
+        dto.setUserId(userId);  
         UserReadDTO updatedUser = userService.updateUserInfo(dto);
         return ResponseEntity.ok(updatedUser);
     }

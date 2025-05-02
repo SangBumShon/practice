@@ -30,6 +30,7 @@ public class SimpleReviewService {
         this.walkRouteRepository = walkRouteRepository;
     }
 
+    @Transactional
     public SimpleReviewReadDTO createSimpleReview(SimpleReviewCreateDTO dto) {
         User simpleWriter = userRepository.findById(dto.getSimpleWriterId())
                 .orElseThrow(() -> new IllegalArgumentException("작성자 정보를 찾을 수 없습니다."));
@@ -44,6 +45,7 @@ public class SimpleReviewService {
         return SimpleReviewMapper.toReadDTO(saved);
     }
 
+    @Transactional
     public SimpleReviewReadDTO updateSimpleReview(SimpleReviewUpdateDTO dto) {
         SimpleReview entity = simpleReviewRepository.findById(dto.getWalkReviewId())
                 .orElseThrow(() -> new IllegalArgumentException("후기를 찾을 수 없습니다."));
@@ -68,6 +70,7 @@ public class SimpleReviewService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public void deleteSimpleReview(Long walkReviewId) {
         simpleReviewRepository.deleteById(walkReviewId);
     }

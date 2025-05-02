@@ -59,6 +59,7 @@ public class LikesService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public void deleteLike(Long likeId) {
         likesRepository.deleteById(likeId);
     }
