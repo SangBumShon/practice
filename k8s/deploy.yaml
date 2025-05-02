@@ -36,9 +36,9 @@ spec:
         operator: Equal
         value: "yes"
         effect: NoSchedule
-      - key: control-plane
-        operator: Exists
-        effect: NoSchedule
+      # - key: control-plane
+      #   operator: Exists
+      #   effect: NoSchedule
 
       containers:
       - name: walktogether
