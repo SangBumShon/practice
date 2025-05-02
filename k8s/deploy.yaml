@@ -86,7 +86,7 @@ spec:
 
         startupProbe:
           httpGet:
-            path: /actuator/health/readiness
+            path: /actuator/health/startup
             port: 8081
           initialDelaySeconds: 60
           periodSeconds: 3
