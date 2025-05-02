@@ -42,7 +42,7 @@ spec:
 
       containers:
       - name: walktogether
-        image: amdp-registry.skala-ai.com/skala25a/sk015-walktogether:latest-29-d60b7dc2703a
+        image: amdp-registry.skala-ai.com/skala25a/sk015-walktogether:latest-30-d6fefc42f040
         imagePullPolicy: Always
         resources:
           requests:
